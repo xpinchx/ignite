@@ -10,6 +10,7 @@ import GameDetail from "../components/GameDetail";
 // Styling and Animations
 import styled from "styled-components";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { fadeIn } from "../animations";
 
 const Home = () => {
   // Get the current location
@@ -25,7 +26,7 @@ const Home = () => {
   const { popular, newGames, upcoming, searched } = useSelector((state) => state.games);
 
   return (
-    <GameList>
+    <GameList variants={fadeIn} initial="hidden" animate="show">
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>{pathID && <GameDetail pathID={pathID} />}</AnimatePresence>
         {searched.length ? (
@@ -92,6 +93,18 @@ const GameList = styled(motion.div)`
 
   h2 {
     padding: 5rem 0rem;
+    color: #ff7676;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 700px) {
+    padding: 0;
+    h2 {
+      padding: 1.5rem;
+      justify-content: center;
+      text-align: center;
+    }
   }
 `;
 
@@ -101,6 +114,12 @@ const Games = styled(motion.div)`
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+  }
 `;
 
 export default Home;

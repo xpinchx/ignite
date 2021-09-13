@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     &::-webkit-scrollbar{
-      width: 0.5rem;
+      width: 1rem;
     }
 
     &::-webkit-scrollbar-thumb{
@@ -24,6 +24,8 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Montserrat', sans-serif;
     width: 100%;
+    background: #363636;
+    color: #ff7676;
   }
 
   h2 {
