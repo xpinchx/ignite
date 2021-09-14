@@ -1,5 +1,5 @@
 // Key things
-const key = "1944c83f47e342cea391dd63b9cce0d2";
+const key = `${process.env.REACT_APP_API_KEY}`;
 const key_url = `key=${key}`;
 
 // Base URL
@@ -35,15 +35,15 @@ const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 getCurrentMonth();
 
 // Popular Games
-const popular_games = `games?${key_url}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
+const popular_games = `games?${key_url}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=12`;
 export const popularGamesURL = () => `${base_url}${popular_games}`;
 
 // Upcoming Games
-const upcoming_games = `games?${key_url}&dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
+const upcoming_games = `games?${key_url}&dates=${currentDate},${nextYear}&ordering=-added&page_size=12`;
 export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
 
 // New Games
-const newGames = `games?${key_url}&dates=${lastYear},${currentDate}&ordering=-released&page_size=10`;
+const newGames = `games?${key_url}&dates=${lastYear},${currentDate}&ordering=-released&page_size=12`;
 export const newGamesURL = () => `${base_url}${newGames}`;
 
 // Game Details
@@ -54,4 +54,4 @@ export const gameScreenshotURL = (game_id) => `${base_url}games/${game_id}/scree
 
 // Searched game
 export const searchGameURL = (game_name) =>
-  `${base_url}games?${key_url}&search=${game_name}&page_size=10`;
+  `${base_url}games?${key_url}&search=${game_name}&page_size=12`;
