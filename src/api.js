@@ -3,7 +3,9 @@ const key = `${process.env.REACT_APP_API_KEY}`;
 const key_url = `key=${key}`;
 
 // Base URL
-const base_url = "https://api.rawg.io/api/";
+// const cors_proxy = "https://warm-crag-08364.herokuapp.com/";
+// const api_url = "https://api.rawg.io/api/";
+const base_url = "https://warm-crag-08364.herokuapp.com/https://api.rawg.io/api/";
 
 // Getting the date
 const getCurrentMonth = () => {
